@@ -42,11 +42,12 @@
             android:textSize="@dimen/text_size" />
 
         <Button
+            android:id="@+id/percentage"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/black"
-            android:text="*"
+            android:text="%"
             android:textColor="#FF5722"
             android:textSize="@dimen/text_size" />
 

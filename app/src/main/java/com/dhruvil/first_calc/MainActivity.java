@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button b1, b2, b3, b4, b5, b6, b7, b8, b9, b0, plus,minus, multi, division, equal, dot,ac;
+    Button b1, b2, b3, b4, b5, b6, b7, b8, b9, b0, plus,minus, multi, division,percentage, equal, dot,ac;
     TextView text_num;
     int f_num,s_num;
     char ope;
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         minus = findViewById(R.id.minus);
         multi = findViewById(R.id.multi);
         division = findViewById(R.id.div);
+        percentage = findViewById(R.id.percentage);
         equal = findViewById(R.id.equal);
 
 
@@ -67,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
                 }else if(ope == '/'){
                     s_num = Integer.parseInt(text_num.getText().toString());
                     division();
+                }else if(ope == '%'){
+                    s_num = Integer.parseInt(text_num.getText().toString());
+                    percent();
                 }
             }
         });
@@ -111,6 +115,17 @@ public class MainActivity extends AppCompatActivity {
                 f_num = Integer.parseInt(text_num.getText().toString());
                 text_num.setText("");
                 ope = '/';
+
+            }
+        });
+
+        percentage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                f_num = Integer.parseInt(text_num.getText().toString());
+                text_num.setText("");
+                ope = '%';
 
             }
         });
@@ -242,6 +257,13 @@ public class MainActivity extends AppCompatActivity {
 
         int div = f_num / s_num;
         text_num.setText(""+div);
+
+    }
+
+    void percent() {
+
+        int per = (f_num * s_num)/100;
+        text_num.setText("" + per);
 
     }
 
